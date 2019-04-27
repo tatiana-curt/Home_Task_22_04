@@ -1,1 +1,2 @@
-print('Web')
+f = open('recipes.txt')
+print(f.read())
