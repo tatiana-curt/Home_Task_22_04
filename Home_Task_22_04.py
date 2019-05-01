@@ -5,8 +5,8 @@ cook_book = {}
 with open('recipes.txt') as f:
     for line in f:
         name = line.strip()
-        if name not in cook_book.keys():
-            cook_book[name] = []
+        # if name not in cook_book.keys():
+        cook_book[name] = []
         namber_of_ingredients = int(f.readline().strip())
         while namber_of_ingredients != 0:
             ingridient_dict = {}
@@ -36,12 +36,10 @@ with open('recipes.txt') as f:
 
             for ingridient in ingridients:
                 if ingridient['ingridient_name'] not in get_shop.keys():
-                    get_shop[ingridient['ingridient_name']] = {'measure': ingridient['measure'],
-                                                               'quantity': int(ingridient['quantity']) * person_count}
+                    get_shop[ingridient['ingridient_name']] = {'measure': ingridient['measure'], 'quantity': int(ingridient['quantity']) * person_count}
                 else:
                     old_quantity = get_shop[ingridient['ingridient_name']].pop('quantity')
-                    get_shop[ingridient['ingridient_name']] = {'measure': ingridient['measure'], 'quantity': int(
-                        ingridient['quantity']) * person_count + old_quantity}
+                    get_shop[ingridient['ingridient_name']] = {'measure': ingridient['measure'], 'quantity': int(ingridient['quantity']) * person_count + old_quantity}
 
         pprint(get_shop)
 
