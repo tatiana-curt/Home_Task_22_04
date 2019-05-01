@@ -1,8 +1,8 @@
 from pprint import pprint
+import Home_Task_23_04
 
-cook_book = {}
-
-with open('recipes.txt') as f:
+with Home_Task_23_04.FileCreator('recipes.txt') as f:
+    cook_book = {}
     for line in f:
         name = line.strip()
         # if name not in cook_book.keys():
